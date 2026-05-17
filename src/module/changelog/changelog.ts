@@ -1,11 +1,12 @@
 import { updateChangelog, createChangelogFile } from '@src/module/changelog/changelog_file.js';
 import { getStagedCommit } from '@src/module/git/git_commit.js';
 import { getCurrentVersion } from '@src/module/release/version.js';
+import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 
 import type { CommitType } from '@src/type/commit_type.js';
 
-const changelog = (commits?: CommitType[]) => {
+const changelog = async (commits?: CommitType[]) => {
   try {
     createChangelogFile();
 
@@ -13,14 +14,13 @@ const changelog = (commits?: CommitType[]) => {
     let stagedCommits: CommitType[] = commits ?? [];
 
     if (!commits) {
-      stagedCommits = getStagedCommit(currentVersion, false);
+      stagedCommits = await getStagedCommit(currentVersion, false);
     }
 
-    updateChangelog(currentVersion, stagedCommits);
+    await updateChangelog(currentVersion, stagedCommits);
     logger.success(`Changelog updated successfully for version 🚀 ${currentVersion}`);
   } catch (error) {
-    logger.error(`Error updating changelog: ${(error as Error).message}`);
-    process.exit(1);
+    handleError(error, 'Error updating changelog');
   }
 };
 
