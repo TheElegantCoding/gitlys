@@ -1,16 +1,16 @@
+import { execAsync } from '@src/util/command_runner.js';
 import { loggerLoader } from '@src/util/logger.js';
-import { execSync } from 'node:child_process';
 
-const createTag = (version: string) => {
+const createTag = async (version: string) => {
   const loader = loggerLoader(`Creating git tag v${version}`);
   loader.start();
-  execSync(`git tag v${version}`, { stdio: 'pipe' });
+  await execAsync(`git tag v${version}`);
   loader.stop();
 };
 
-const tagExists = (): boolean => {
+const tagExists = async () => {
   try {
-    const tags = execSync('git tag --list').toString();
+    const tags = (await execAsync('git tag --list')).toString();
     return tags.length > 0;
   } catch {
     return false;
