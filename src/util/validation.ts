@@ -1,9 +1,9 @@
-import { execSync } from 'node:child_process';
+import { execAsync } from '@src/util/command_runner.js';
 
-const isGhInstalled = (): boolean => {
+const isGhInstalled = async (): Promise<boolean> => {
   try {
     const command = process.platform === 'win32' ? 'where gh' : 'command -v gh';
-    execSync(command, { stdio: 'ignore' });
+    await execAsync(command);
     return true;
   } catch {
     return false;
