@@ -10,7 +10,8 @@ const createTag = async (version: string) => {
 
 const tagExists = async () => {
   try {
-    const tags = (await execAsync('git tag --list')).toString();
+    const { stdout } = await execAsync('git tag --list');
+    const tags = stdout.toString().trim().split('\n').filter(Boolean);
     return tags.length > 0;
   } catch {
     return false;
