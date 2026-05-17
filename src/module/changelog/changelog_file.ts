@@ -31,11 +31,11 @@ const checkVersionExists = (version: string, fullPath: string): boolean => {
   return false;
 };
 
-const createEntry = (version: string, fullPath: string, commits: CommitType[]): string => {
+const createEntry = async (version: string, fullPath: string, commits: CommitType[]): Promise<string> => {
   const date = new Date().toISOString().split('T')[0];
   const existingContent = fs.readFileSync(fullPath, 'utf8');
   const github = 'https://github.com';
-  const gitUrl = getRepoUrl();
+  const gitUrl = await getRepoUrl();
 
   const changes = commits.map((commit) => {
     const {
@@ -65,7 +65,7 @@ const validChangelog = (fullPath: string, version: string): boolean => {
   return true;
 };
 
-const updateChangelog = (version: string, commits: CommitType[]) => {
+const updateChangelog = async (version: string, commits: CommitType[]) => {
   const configuration = getConfiguration();
   const fullPath = path.join(process.cwd(), configuration.changelog.changelogPath ?? 'CHANGELOG.md');
 
@@ -76,7 +76,7 @@ const updateChangelog = (version: string, commits: CommitType[]) => {
   const loader = loggerLoader(`Updating changelog for version ${version} with ${commits.length} commits...`);
 
   loader.start();
-  const updatedContent = createEntry(version, fullPath, commits);
+  const updatedContent = await createEntry(version, fullPath, commits);
   fs.writeFileSync(fullPath, updatedContent);
   loader.stop();
 };
