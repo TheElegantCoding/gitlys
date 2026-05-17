@@ -1,8 +1,8 @@
+import { execAsync } from '@src/util/command_runner.js';
 import { logger } from '@src/util/logger.js';
-import { execSync } from 'node:child_process';
 
-const getStagedFiles = (): string[] => {
-  const stagedFiles = execSync('git diff --cached --name-only --diff-filter=d')
+const getStagedFiles = async (): Promise<string[]> => {
+  const stagedFiles = (await execAsync('git diff --cached --name-only --diff-filter=d'))
     .toString()
     .trim()
     .split('\n')
@@ -16,8 +16,8 @@ const getStagedFiles = (): string[] => {
   return stagedFiles;
 };
 
-const stageFiles = (files: string[]): void => {
-  execSync(`git add ${files.join(' ')}`);
+const stageFiles = async (files: string[]): Promise<void> => {
+  await execAsync(`git add ${files.join(' ')}`);
 };
 
 export { stageFiles, getStagedFiles };
