@@ -2,14 +2,22 @@ import { execAsync } from '@src/util/command_runner.js';
 import { loggerLoader } from '@src/util/logger.js';
 
 const getPushFiles = async (): Promise<string[]> => {
-  const output = (await execAsync('git log --format="%h" HEAD --not --remotes'))
+  const { stdout } = await execAsync('git log --format="%h" HEAD --not --remotes');
+
+  const output = stdout
     .toString()
     .trim()
     .split('\n')
     .filter(Boolean);
+
+  if (output.length === 0) { return []; }
+
   const firstCommit = output[0] ?? '';
   const lastCommit = output.at(-1) ?? '';
-  const outputLoader = (await execAsync(`git diff --name-only ${firstCommit} ${lastCommit}`))
+
+  const { stdout: diffStdout } = await execAsync(`git diff --name-only ${firstCommit} ${lastCommit}`);
+
+  const outputLoader = diffStdout
     .toString()
     .trim()
     .split('\n')
