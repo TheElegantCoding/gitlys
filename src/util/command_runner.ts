@@ -1,19 +1,22 @@
 import { stageFiles } from '@src/module/git/git_staged.js';
 import { loggerLoader } from '@src/util/logger.js';
-import { execSync } from 'node:child_process';
+import { exec } from 'node:child_process';
+import { promisify } from 'node:util';
 
-const runCommand = (command: string, files?: string[]): void => {
+const execAsync = promisify(exec);
+
+const runCommand = async (command: string, files?: string[]): Promise<void> => {
   const filesToPass = command.includes('tsc') ? '' : files?.map((entry) => { return `"${entry}"`; }).join(' ') ?? '';
   const loader = loggerLoader(`Running: "${command}"...`);
 
   loader.start();
-  execSync(`${command} ${filesToPass}`, { stdio: 'pipe' });
+  await execAsync(`${command} ${filesToPass}`);
 
   if (files && files.length > 0) {
-    stageFiles(files);
+    await stageFiles(files);
   }
 
   loader.stop();
 };
 
-export { runCommand };
+export { execAsync, runCommand };
