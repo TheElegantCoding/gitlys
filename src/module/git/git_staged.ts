@@ -2,7 +2,8 @@ import { execAsync } from '@src/util/command_runner.js';
 import { logger } from '@src/util/logger.js';
 
 const getStagedFiles = async (): Promise<string[]> => {
-  const stagedFiles = (await execAsync('git diff --cached --name-only --diff-filter=d'))
+  const { stdout } = await execAsync('git diff --cached --name-only --diff-filter=d');
+  const stagedFiles = stdout
     .toString()
     .trim()
     .split('\n')
