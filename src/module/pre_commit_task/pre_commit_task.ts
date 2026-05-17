@@ -6,11 +6,11 @@ import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 import { getMatchingFiles } from '@src/util/pattern_matcher.js';
 
-const preCommitTask = () => {
+const preCommitTask = async () => {
   try {
     const config = getConfiguration();
     const preCommitTaskConfig = config.preCommitTask as Record<string, string>;
-    const stagedFiles = getStagedFiles();
+    const stagedFiles = await getStagedFiles();
     const allFiles = [];
 
     for (const [pattern, command] of Object.entries(preCommitTaskConfig)) {
@@ -18,7 +18,7 @@ const preCommitTask = () => {
       allFiles.push(...matchingFiles);
 
       if (matchingFiles.length > 0) {
-        runCommand(command, matchingFiles);
+        await runCommand(command, matchingFiles);
       }
     }
 
