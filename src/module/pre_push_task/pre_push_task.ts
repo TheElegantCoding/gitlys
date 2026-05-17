@@ -5,17 +5,17 @@ import { fileReport } from '@src/util/file_report.js';
 import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 
-const prePushTask = () => {
+const prePushTask = async () => {
   try {
     const config = getConfiguration();
-    const pushFiles = getPushFiles();
+    const pushFiles = await getPushFiles();
 
     if (!config.prePushTask || config.prePushTask.length === 0) {
       return;
     }
 
     for (const command of config.prePushTask) {
-      runCommand(command);
+      await runCommand(command);
     }
 
     fileReport(pushFiles);
