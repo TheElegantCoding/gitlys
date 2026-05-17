@@ -1,4 +1,5 @@
 import { getConfiguration } from '@src/util/file_configuration.js';
+import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -105,7 +106,7 @@ const init = () => {
       prePushContent
     });
   } catch (error) {
-    logger.error(`Error installing Gitlys hook: ${(error as Error).message}`);
+    handleError(error, 'Error installing Gitlys hooks:');
   }
 };
 
