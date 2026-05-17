@@ -3,9 +3,9 @@ import { getRepoUrl } from '@src/module/git/git_repo_url.js';
 
 import type { CommitType } from '@src/type/commit_type.js';
 
-const generateReleaseNotes = (commits: CommitType[]) => {
+const generateReleaseNotes = async (commits: CommitType[]) => {
   const github = 'https://github.com';
-  const gitUrl = getRepoUrl();
+  const gitUrl = await getRepoUrl();
 
   const groupedCommits = commits.reduce<Record<string, CommitType[]>>((accumulator, commit) => {
     const { type } = commit;
