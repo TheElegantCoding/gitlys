@@ -4,21 +4,21 @@ import { isWorkingDirectoryClean } from '@src/module/git/working_directory.js';
 import { generateRelease } from '@src/module/release/generate_release.js';
 import { generateReleaseNotes } from '@src/module/release/release_notes.js';
 import { getCurrentVersion } from '@src/module/release/version.js';
+import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 
 const release = async () => {
   try {
     logger.info('Releasing new version', { blankAbove: true });
-    isWorkingDirectoryClean();
+    await isWorkingDirectoryClean();
     const currentVersion = getCurrentVersion();
-    const commits = getStagedCommit(currentVersion);
+    const commits = await getStagedCommit(currentVersion);
     const nextVersion = await selectVersion(currentVersion);
-    const releaseNotes = generateReleaseNotes(commits);
+    const releaseNotes = await generateReleaseNotes(commits);
 
-    generateRelease(nextVersion, releaseNotes, commits);
+    await generateRelease(nextVersion, releaseNotes, commits);
   } catch (error) {
-    logger.error(`Error during release process: ${(error as Error).message}`);
-    process.exit(1);
+    handleError(error, 'Failed to release new version');
   }
 };
 
