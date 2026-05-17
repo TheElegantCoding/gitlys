@@ -16,6 +16,40 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [2.2.0] - 2026-05-17
+
+- **fix:** refactor getRepoUrl for improved readability and maintainability [`2c8918e`](https://github.com/TheElegantCoding/gitlys/commit/2c8918e) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getStagedCommit to improve readability and maintainability [`e4313c8`](https://github.com/TheElegantCoding/gitlys/commit/e4313c8) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor isWorkingDirectoryClean for improved readability [`0f6e08d`](https://github.com/TheElegantCoding/gitlys/commit/0f6e08d) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor tagExists to improve readability and maintainability [`3832f32`](https://github.com/TheElegantCoding/gitlys/commit/3832f32) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getStagedFiles to improve readability and maintainability [`a90f45c`](https://github.com/TheElegantCoding/gitlys/commit/a90f45c) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getPushFiles to improve readability and maintainability [`bc645d2`](https://github.com/TheElegantCoding/gitlys/commit/bc645d2) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor preCommitTask to use async/await for improved asynchronous handling [`3f3ae5b`](https://github.com/TheElegantCoding/gitlys/commit/3f3ae5b) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor generateRelease to use async/await for improved asynchronous handling [`484b79d`](https://github.com/TheElegantCoding/gitlys/commit/484b79d) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor prePushTask to use async/await for improved asynchronous handling [`ccc1d19`](https://github.com/TheElegantCoding/gitlys/commit/ccc1d19) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor generateReleaseNotes to use async/await for improved asynchronous handling [`765a8d1`](https://github.com/TheElegantCoding/gitlys/commit/765a8d1) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor checkGithubRelease and githubCreateRelease to use async/await for improved asynchronous handling [`7a84122`](https://github.com/TheElegantCoding/gitlys/commit/7a84122) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor isWorkingDirectoryClean to use async/await for improved asynchronous handling [`66f7185`](https://github.com/TheElegantCoding/gitlys/commit/66f7185) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor createTag and tagExists to use async/await for improved asynchronous handling [`4afe854`](https://github.com/TheElegantCoding/gitlys/commit/4afe854) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getStagedFiles and stageFiles to use async/await for improved asynchronous handling [`ce26c02`](https://github.com/TheElegantCoding/gitlys/commit/ce26c02) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getRepoUrl to use async/await for improved asynchronous handling [`92cd137`](https://github.com/TheElegantCoding/gitlys/commit/92cd137) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await isWorkingDirectoryClean, getStagedCommit improved asynchronous handling [`d0e3499`](https://github.com/TheElegantCoding/gitlys/commit/d0e3499) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await changelog for improved asynchronous handling [`4854607`](https://github.com/TheElegantCoding/gitlys/commit/4854607) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await preCommitTask for improved asynchronous handling [`cc50cc0`](https://github.com/TheElegantCoding/gitlys/commit/cc50cc0) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await prePushTask for improved asynchronous handling [`52e5904`](https://github.com/TheElegantCoding/gitlys/commit/52e5904) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor getPushFiles, gitPushTag, and gitPushHead to use async/await for improved asynchronous handling [`4e4252d`](https://github.com/TheElegantCoding/gitlys/commit/4e4252d) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor commitStagedVersionFiles and getStagedCommit to use async/await for improved asynchronous handling [`49b2bfa`](https://github.com/TheElegantCoding/gitlys/commit/49b2bfa) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** replace logger with handleError for improved error handling in commit linting [`2ba1259`](https://github.com/TheElegantCoding/gitlys/commit/2ba1259) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor changelog function to use async/await for improved asynchronous handling [`2d49e93`](https://github.com/TheElegantCoding/gitlys/commit/2d49e93) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor createEntry and updateChangelog to use async/await for improved asynchronous handling [`10d2d53`](https://github.com/TheElegantCoding/gitlys/commit/10d2d53) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await prePushTask for proper asynchronous execution [`e89df8f`](https://github.com/TheElegantCoding/gitlys/commit/e89df8f) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** await preCommitTask for proper asynchronous execution [`114ef2d`](https://github.com/TheElegantCoding/gitlys/commit/114ef2d) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor runCommand to use async execAsync for improved command execution [`cb962ca`](https://github.com/TheElegantCoding/gitlys/commit/cb962ca) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** use handleError for improved error handling during Gitlys hook installation [`8c6cffd`](https://github.com/TheElegantCoding/gitlys/commit/8c6cffd) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** refactor isGhInstalled to use async execAsync for command execution [`7ab938b`](https://github.com/TheElegantCoding/gitlys/commit/7ab938b) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** add unicorn/no-await-expression-member rule to eslint configuration [`d51d771`](https://github.com/TheElegantCoding/gitlys/commit/d51d771) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- **fix:** update logginlys dependency to version 4.0.2 [`e357bd2`](https://github.com/TheElegantCoding/gitlys/commit/e357bd2) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [2.1.4] - 2026-04-30
 
 - **fix:** format command strings in createHookContent for consistency [`56f7ecb`](https://github.com/TheElegantCoding/gitlys/commit/56f7ecb) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
