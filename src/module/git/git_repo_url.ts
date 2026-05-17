@@ -1,7 +1,8 @@
 import { execAsync } from '@src/util/command_runner.js';
 
 const getRepoUrl = async (): Promise<string> => {
-  return (await execAsync('git config --get remote.origin.url')).toString().trim().replace(/\.git$/, '');
+  const { stdout } = await execAsync('git config --get remote.origin.url');
+  return stdout.toString().trim().replace(/\.git$/, '');
 };
 
 export { getRepoUrl };
