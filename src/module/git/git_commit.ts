@@ -35,9 +35,15 @@ const checkStagedCommits = (commitStaged: CommitType[]) => {
 };
 
 const getStagedCommit = async (currentVersion: string, reportCommits = true) => {
-  const commits = await tagExists()
-    ? (await execAsync(`git log v${currentVersion}..HEAD --pretty=format:"%s|%h|%an"`)).toString().trim().split('\n')
-    : (await execAsync('git log --pretty=format:"%s|%h|%an"')).toString().trim().split('\n');
+  let commits: string[] = [];
+
+  if (await tagExists()) {
+    const { stdout } = await execAsync(`git log v${currentVersion}..HEAD --pretty=format:"%s|%h|%an"`);
+    commits = stdout.toString().trim().split('\n');
+  } else {
+    const { stdout } = await execAsync('git log --pretty=format:"%s|%h|%an"');
+    commits = stdout.toString().trim().split('\n');
+  }
 
   const result: CommitType[] = [];
 
