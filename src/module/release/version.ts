@@ -9,9 +9,13 @@ const updatePackageJson = (newVersion: string) => {
     return;
   }
 
-  const packageContent = JSON.parse(fs.readFileSync(packagePath) as unknown as string) as { version: string };
-  packageContent.version = newVersion;
-  fs.writeFileSync(packagePath, `${JSON.stringify(packageContent, null, 2)}\n`);
+  let content = fs.readFileSync(packagePath, 'utf8');
+  const versionRegex = /("version"\s*:\s*")[^"]*(")/;
+
+  if (versionRegex.test(content)) {
+    content = content.replace(versionRegex, `$1${newVersion}$2`);
+    fs.writeFileSync(packagePath, content, 'utf8');
+  }
 };
 
 const getNextVersion = (currentVersion: string, bumpType: 'patch' | 'minor' | 'major'): string => {
