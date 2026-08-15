@@ -16,6 +16,10 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [2.2.1] - 2026-08-15
+
+- **fix:** refactor updatePackageJson to improve version updating logic [`53beba5`](https://github.com/TheElegantCoding/gitlys/commit/53beba5) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [2.2.0] - 2026-05-17
 
 - **fix:** refactor getRepoUrl for improved readability and maintainability [`2c8918e`](https://github.com/TheElegantCoding/gitlys/commit/2c8918e) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
