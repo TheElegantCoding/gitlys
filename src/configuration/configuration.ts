@@ -10,6 +10,7 @@ const configuration: ConfigurationType = {
   preCommitTask: {},
   prePushTask: [],
   release: {
+    files: ['package.json'],
     releaseToGithub: false
   },
   changelog: {
