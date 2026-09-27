@@ -16,6 +16,10 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [2.2.2] - 2026-09-27
+
+- **fix:** update @types/node to version 26.6.3 for compatibility [`4f673b6`](https://github.com/TheElegantCoding/gitlys/commit/4f673b6) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [2.2.1] - 2026-08-15
 
 - **fix:** refactor updatePackageJson to improve version updating logic [`53beba5`](https://github.com/TheElegantCoding/gitlys/commit/53beba5) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
