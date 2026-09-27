@@ -1,10 +1,11 @@
 type ConfigurationType = {
   prePushTask?: string[];
   preCommitTask?: Record<string, string>;
+  packageManager?: 'npm' | 'bun' | 'yarn' | 'pnpm';
   release?: {
+    files?: string[];
     releaseToGithub?: boolean;
   };
-  packageManager?: 'npm' | 'bun' | 'yarn' | 'pnpm';
   commitlint?: {
     maxLength?: number;
     allowedTypes?: string[];
