@@ -44,7 +44,7 @@ const createEntry = async (version: string, fullPath: string, commits: CommitTyp
       hash,
       author
     } = commit;
-    return `- **${type}:** ${cleanMessage} [\`${hash}\`](${gitUrl}/commit/${hash}) by [\`@${author}\`](${github}/${author})`;
+    return `- [[\`${hash}\`](${gitUrl}/commit/${hash})] - **${type}:** ${cleanMessage} by [\`@${author}\`](${github}/${author})`;
   });
 
   const newEntry = `## 🚀 Version [${version}] - ${date}\n\n${changes.join('\n')}`;
