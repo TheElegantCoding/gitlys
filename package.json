@@ -58,7 +58,7 @@
     "bun": ">=1.1.0"
   },
   "scripts": {
-    "build": "bunx run lint && bunx run type-check && tsup",
+    "build": "bun run lint && bun run type-check && tsup",
     "postinstall": "bun run lint && bun src/playground/install.ts",
     "preinstall": "npx only-allow bun",
     "commit:check": "bun src/playground/lint_commit.ts",
