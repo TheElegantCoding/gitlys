@@ -1,12 +1,12 @@
 import { execAsync } from '@src/util/command_runner.js';
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import { logger, loggerLoader } from '@src/util/logger.js';
 import { isGhInstalled } from '@src/util/validation.js';
 import fs from 'node:fs';
 
-import type { ConfigurationType } from '@src/type/configuration_type.js';
+import type { ConfigType } from '@src/type/configuration_type.js';
 
-const checkGithubRelease = async (config: ConfigurationType) => {
+const checkGithubRelease = async (config: ConfigType) => {
   if (config.release?.releaseToGithub === false) {
     return false;
   }
@@ -22,7 +22,7 @@ const checkGithubRelease = async (config: ConfigurationType) => {
 };
 
 const githubCreateRelease = async (version: string, releaseNotes: string) => {
-  const config = getConfiguration();
+  const config = getConfig();
 
   if (!await checkGithubRelease(config)) {
     return;
