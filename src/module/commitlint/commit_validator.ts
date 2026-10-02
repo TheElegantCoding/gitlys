@@ -1,6 +1,6 @@
 import { commonCommit } from '@src/constant/commit_constant.js';
 import { getCommitMessage } from '@src/module/commitlint/commit_reader.js';
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import { logger } from '@src/util/logger.js';
 import { loggerColumn } from 'logginlys';
 
@@ -28,7 +28,7 @@ const checkCommitPattern = (message: string, maxLength: number, allowedTypes: st
 
 const validateCommit = (commandMessage?: string) => {
   logger.info('Validating commit message...');
-  const { commitlint } = getConfiguration();
+  const { commitlint } = getConfig();
   const commitMessage = getCommitMessage(commandMessage);
 
   checkCommitType(commitMessage);
