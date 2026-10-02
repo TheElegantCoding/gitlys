@@ -58,8 +58,8 @@
     "bun": ">=1.1.0"
   },
   "scripts": {
-    "build": "bunx run lint && tsup",
-    "postinstall": "bun src/playground/install.ts",
+    "build": "bunx run lint && bunx run type-check && tsup",
+    "postinstall": "bun run lint && bun src/playground/install.ts",
     "preinstall": "npx only-allow bun",
     "commit:check": "bun src/playground/lint_commit.ts",
     "pre-push:check": "bun src/playground/pre_push_task.ts",
@@ -67,6 +67,7 @@
     "changelog:check": "bun src/playground/changelog.ts",
     "release:check": "bun src/playground/release.ts",
     "install:check": "bun dist/install.js",
+    "type-check": "tsc --noEmit",
     "lint": "eslint . --fix --cache",
     "prepublishOnly": "bun run build",
     "release": "bun run build && bun src/playground/release.ts"
