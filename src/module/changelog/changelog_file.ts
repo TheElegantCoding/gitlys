@@ -1,6 +1,6 @@
 import { changelogConstant } from '@src/constant/changelog.js';
 import { getRepoUrl } from '@src/module/git/git_repo_url.js';
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import { logger, loggerLoader } from '@src/util/logger.js';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,7 +8,7 @@ import path from 'node:path';
 import type { CommitType } from '@src/type/commit_type.js';
 
 const createChangelogFile = () => {
-  const config = getConfiguration();
+  const config = getConfig();
   const fullPath = path.join(process.cwd(), config.changelog.changelogPath ?? 'CHANGELOG.md');
 
   if (!config.changelog.generateChangelog) {
@@ -66,7 +66,7 @@ const validChangelog = (fullPath: string, version: string): boolean => {
 };
 
 const updateChangelog = async (version: string, commits: CommitType[]) => {
-  const config = getConfiguration();
+  const config = getConfig();
   const fullPath = path.join(process.cwd(), config.changelog.changelogPath ?? 'CHANGELOG.md');
 
   if (!validChangelog(fullPath, version)) {
