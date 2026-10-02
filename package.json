@@ -58,7 +58,7 @@
     "bun": ">=1.1.0"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "bunx run lint && tsup",
     "postinstall": "bun src/playground/install.ts",
     "preinstall": "npx only-allow bun",
     "commit:check": "bun src/playground/lint_commit.ts",
@@ -67,7 +67,7 @@
     "changelog:check": "bun src/playground/changelog.ts",
     "release:check": "bun src/playground/release.ts",
     "install:check": "bun dist/install.js",
-    "lint": "eslint --fix",
+    "lint": "eslint . --fix --cache",
     "prepublishOnly": "bun run build",
     "release": "bun run build && bun src/playground/release.ts"
   },
@@ -75,8 +75,8 @@
     "@inquirer/prompts": "^8.4.1"
   },
   "devDependencies": {
-    "@types/node": "^26.6.3",
-    "eslint-config-universal-code": "^1.1.3",
+    "@types/node": "^26.6.4",
+    "eslint-config-universal-code": "^1.1.4",
     "logginlys": "^4.0.2",
     "tsup": "^8.5.1",
     "typescript": "^5.9.3"
