@@ -8,10 +8,10 @@ import path from 'node:path';
 import type { CommitType } from '@src/type/commit_type.js';
 
 const createChangelogFile = () => {
-  const configuration = getConfiguration();
-  const fullPath = path.join(process.cwd(), configuration.changelog.changelogPath ?? 'CHANGELOG.md');
+  const config = getConfiguration();
+  const fullPath = path.join(process.cwd(), config.changelog.changelogPath ?? 'CHANGELOG.md');
 
-  if (!configuration.changelog.generateChangelog) {
+  if (!config.changelog.generateChangelog) {
     return;
   }
 
@@ -32,7 +32,7 @@ const checkVersionExists = (version: string, fullPath: string): boolean => {
 };
 
 const createEntry = async (version: string, fullPath: string, commits: CommitType[]): Promise<string> => {
-  const date = new Date().toISOString().split('T')[0];
+  const date = new Date().toISOString().split('T', 1)[0];
   const existingContent = fs.readFileSync(fullPath, 'utf8');
   const github = 'https://github.com';
   const gitUrl = await getRepoUrl();
@@ -66,8 +66,8 @@ const validChangelog = (fullPath: string, version: string): boolean => {
 };
 
 const updateChangelog = async (version: string, commits: CommitType[]) => {
-  const configuration = getConfiguration();
-  const fullPath = path.join(process.cwd(), configuration.changelog.changelogPath ?? 'CHANGELOG.md');
+  const config = getConfiguration();
+  const fullPath = path.join(process.cwd(), config.changelog.changelogPath ?? 'CHANGELOG.md');
 
   if (!validChangelog(fullPath, version)) {
     return;
