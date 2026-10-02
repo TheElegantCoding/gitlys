@@ -1,10 +1,10 @@
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import { handleError } from '@src/util/handle_error.js';
 import { logger } from '@src/util/logger.js';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import type { ConfigurationType } from '@src/type/configuration_type.js';
+import type { ConfigType } from '@src/type/configuration_type.js';
 
 const checkGitDirectory = (directory: string): boolean => {
   const gitPath = path.join(directory, '.git');
@@ -22,16 +22,16 @@ const checkGitDirectory = (directory: string): boolean => {
   return true;
 };
 
-const createHookContent = (configuration: ConfigurationType, isProduction: boolean) => {
+const createHookContent = (config: ConfigType, isProduction: boolean) => {
   const install = isProduction
-    ? `${configuration.packageManager} ./node_modules/gitlys/dist/index.js "$1"`
-    : `${configuration.packageManager} src/index.ts "$1"`;
+    ? `${config.packageManager} ./node_modules/gitlys/dist/index.js "$1"`
+    : `${config.packageManager} src/index.ts "$1"`;
   const preCommitTaskCommand = isProduction
-    ? `${configuration.packageManager} ./node_modules/gitlys/dist/pre_commit_task.js "$1"`
-    : `${configuration.packageManager} src/pre_commit_task.ts`;
+    ? `${config.packageManager} ./node_modules/gitlys/dist/pre_commit_task.js "$1"`
+    : `${config.packageManager} src/pre_commit_task.ts`;
   const prePushTaskCommand = isProduction
-    ? `${configuration.packageManager} ./node_modules/gitlys/dist/pre_push_task.js "$1"`
-    : `${configuration.packageManager} src/pre_push_task.ts`;
+    ? `${config.packageManager} ./node_modules/gitlys/dist/pre_push_task.js "$1"`
+    : `${config.packageManager} src/pre_push_task.ts`;
 
   const hookContent = `#!/bin/bash\n\n${install}`;
   const preCommitContent = `#!/bin/bash\n\n${preCommitTaskCommand}`;
@@ -45,9 +45,9 @@ const installCommand = (gitHooksDirectory: string) => {
   const preCommitHook = path.join(gitHooksDirectory, 'pre-commit');
   const prePushHook = path.join(gitHooksDirectory, 'pre-push');
   const isProduction = import.meta.url.includes('node_modules');
-  const configuration = getConfiguration();
+  const config = getConfig();
 
-  const { hookContent, preCommitContent, prePushContent } = createHookContent(configuration, isProduction);
+  const { hookContent, preCommitContent, prePushContent } = createHookContent(config, isProduction);
 
   return {
     commitMessageHook,
