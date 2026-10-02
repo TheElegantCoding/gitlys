@@ -1,6 +1,6 @@
 import { tagExists } from '@src/module/git/git_tag.js';
 import { execAsync } from '@src/util/command_runner.js';
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import { reportLogger } from '@src/util/file_logger.js';
 import { logger, loggerLoader } from '@src/util/logger.js';
 import { colorAnsi, loggerStyle } from 'logginlys';
@@ -9,7 +9,7 @@ import type { CommitType } from '@src/type/commit_type.js';
 
 const commitStagedVersionFiles = async (nextVersion: string) => {
   const loader = loggerLoader(`Committing staged files for version ${nextVersion}...`);
-  const config = getConfiguration();
+  const config = getConfig();
   const changelogPath = config.changelog.changelogPath ?? 'CHANGELOG.md';
   loader.start();
 
