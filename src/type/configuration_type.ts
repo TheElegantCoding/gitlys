@@ -1,4 +1,4 @@
-type ConfigurationType = {
+type ConfigType = {
   prePushTask?: string[];
   preCommitTask?: Record<string, string>;
   packageManager?: 'npm' | 'bun' | 'yarn' | 'pnpm';
@@ -16,4 +16,4 @@ type ConfigurationType = {
   };
 };
 
-export type { ConfigurationType };
+export type { ConfigType };
