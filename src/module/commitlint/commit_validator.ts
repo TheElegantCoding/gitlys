@@ -5,7 +5,7 @@ import { logger } from '@src/util/logger.js';
 import { loggerColumn } from 'logginlys';
 
 const checkCommitType = (message: string) => {
-  const commitType = message.split(':')[0]?.split('(')[0]?.trim().toLowerCase();
+  const commitType = message.split(':', 1)[0]?.split('(', 1)[0]?.trim().toLowerCase();
 
   if (!commitType || !commonCommit.includes(commitType)) {
     throw new Error(`Invalid commit type. allowed types are:\n\n${loggerColumn(commonCommit, { width: 40, padding: 4 })}`);
