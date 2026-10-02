@@ -1,4 +1,4 @@
-import { getConfiguration } from '@src/util/file_configuration.js';
+import { getConfig } from '@src/util/file_configuration.js';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -35,7 +35,7 @@ const updatePackageBuild = (newVersion: string) => {
 };
 
 const updateFiles = (newVersion: string) => {
-  const config = getConfiguration();
+  const config = getConfig();
 
   config.release.files?.forEach((element) => {
     if (element === 'package.json') {
