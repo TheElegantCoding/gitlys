@@ -1,36 +1,36 @@
-import { configuration } from '@src/configuration/configuration.js';
+import { config } from '@src/configuration/configuration.js';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import type { ConfigurationType } from '@src/type/configuration_type.js';
+import type { ConfigType } from '@src/type/configuration_type.js';
 
-const getConfigurationFile = () => {
+const getConfigFile = () => {
   const configPath = path.join(process.cwd(), '.gitlys.json');
 
   if (!fs.existsSync(configPath)) {
-    return JSON.stringify(configuration);
+    return JSON.stringify(config);
   }
-  const configContent = fs.readFileSync(configPath, 'utf8') as unknown as string;
+  const configContent = fs.readFileSync(configPath, 'utf8');
 
   return configContent;
 };
 
-const getConfiguration = () => {
-  const configContent = getConfigurationFile();
-  const config = JSON.parse(configContent) as null | ConfigurationType;
+const getConfig = () => {
+  const configContent = getConfigFile();
+  const configFile = JSON.parse(configContent) as null | ConfigType;
 
-  if (typeof config !== 'object' || config === null) {
+  if (typeof configFile !== 'object' || configFile === null) {
     throw new Error('Invalid configuration format in .gitlys.json');
   }
 
   return {
-    ...configuration,
     ...config,
-    commitlint: { ...configuration.commitlint, ...config.commitlint },
-    preCommitTask: { ...configuration.preCommitTask, ...config.preCommitTask },
-    release: { ...configuration.release, ...config.release },
-    changelog: { ...configuration.changelog, ...config.changelog }
+    ...configFile,
+    commitlint: { ...config.commitlint, ...configFile.commitlint },
+    preCommitTask: { ...config.preCommitTask, ...configFile.preCommitTask },
+    release: { ...config.release, ...configFile.release },
+    changelog: { ...config.changelog, ...configFile.changelog }
   };
 };
 
-export { getConfiguration };
+export { getConfig };
