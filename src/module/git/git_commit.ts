@@ -52,13 +52,13 @@ const getStagedCommit = async (currentVersion: string, reportCommits = true) => 
       message,
       hash,
       author
-    ] = entry.split('|');
+    ] = entry.split('|', 3);
 
     result.push({
       message: message?.trim(),
       hash: hash?.trim(),
       author: author?.trim(),
-      type: message?.split(':')[0]?.toLowerCase() ?? '',
+      type: message?.split(':', 1)[0]?.toLowerCase() ?? '',
       cleanMessage: message?.split(':').slice(1).join(':').trim() ?? ''
     });
   });
