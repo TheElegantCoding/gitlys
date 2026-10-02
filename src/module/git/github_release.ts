@@ -6,8 +6,8 @@ import fs from 'node:fs';
 
 import type { ConfigurationType } from '@src/type/configuration_type.js';
 
-const checkGithubRelease = async (configuration: ConfigurationType) => {
-  if (configuration.release?.releaseToGithub === false) {
+const checkGithubRelease = async (config: ConfigurationType) => {
+  if (config.release?.releaseToGithub === false) {
     return false;
   }
 
@@ -22,9 +22,9 @@ const checkGithubRelease = async (configuration: ConfigurationType) => {
 };
 
 const githubCreateRelease = async (version: string, releaseNotes: string) => {
-  const configuration = getConfiguration();
+  const config = getConfiguration();
 
-  if (!await checkGithubRelease(configuration)) {
+  if (!await checkGithubRelease(config)) {
     return;
   }
 
