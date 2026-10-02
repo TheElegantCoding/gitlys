@@ -1,8 +1,8 @@
 import { commonCommit } from '@src/constant/commit_constant.js';
 
-import type { ConfigurationType } from '@src/type/configuration_type.js';
+import type { ConfigType } from '@src/type/configuration_type.js';
 
-const config: ConfigurationType = {
+const config: ConfigType = {
   commitlint: {
     allowedTypes: commonCommit,
     maxLength: 120
@@ -20,4 +20,4 @@ const config: ConfigurationType = {
   packageManager: 'npm'
 };
 
-export { config as configuration };
+export { config };
