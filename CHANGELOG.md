@@ -16,6 +16,38 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [2.2.3] - 2026-10-02
+
+- [[`33f3d41`](https://github.com/TheElegantCoding/gitlys/commit/33f3d41)] - **fix:** update build script to use bun instead of bunx by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`a96ed1f`](https://github.com/TheElegantCoding/gitlys/commit/a96ed1f)] - **fix:** rename configuration references for consistency and clarity by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`3e307c3`](https://github.com/TheElegantCoding/gitlys/commit/3e307c3)] - **fix:** rename ConfigurationType to ConfigType for consistency by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`686e9c4`](https://github.com/TheElegantCoding/gitlys/commit/686e9c4)] - **fix:** standardize import for configuration retrieval in update_file module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`4dd79b9`](https://github.com/TheElegantCoding/gitlys/commit/4dd79b9)] - **fix:** standardize import for configuration retrieval in pre_push_task module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`3c3cdd9`](https://github.com/TheElegantCoding/gitlys/commit/3c3cdd9)] - **fix:** standardize import for configuration retrieval in pre_commit_task module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`04c76a9`](https://github.com/TheElegantCoding/gitlys/commit/04c76a9)] - **fix:** standardize import and type naming for configuration in GitHub release module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`f816f27`](https://github.com/TheElegantCoding/gitlys/commit/f816f27)] - **fix:** standardize import for configuration retrieval in git commit module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`7e95d31`](https://github.com/TheElegantCoding/gitlys/commit/7e95d31)] - **fix:** standardize import for configuration retrieval in commit validator module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`ea49f68`](https://github.com/TheElegantCoding/gitlys/commit/ea49f68)] - **fix:** standardize function naming for configuration retrieval in changelog module by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`8fb46d0`](https://github.com/TheElegantCoding/gitlys/commit/8fb46d0)] - **fix:** standardize type naming for configuration in configuration file by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`08df081`](https://github.com/TheElegantCoding/gitlys/commit/08df081)] - **fix:** standardize variable naming for configuration in install utility by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`8372196`](https://github.com/TheElegantCoding/gitlys/commit/8372196)] - **fix:** enhance build and postinstall scripts for improved linting and type-checking by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`f1f2e9c`](https://github.com/TheElegantCoding/gitlys/commit/f1f2e9c)] - **fix:** standardize variable naming for configuration in GitHub release functions by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`e85baff`](https://github.com/TheElegantCoding/gitlys/commit/e85baff)] - **fix:** limit split to first occurrence for commit type extraction by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`b612e41`](https://github.com/TheElegantCoding/gitlys/commit/b612e41)] - **fix:** improve commit type extraction logic in commit validator by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`afd717f`](https://github.com/TheElegantCoding/gitlys/commit/afd717f)] - **fix:** standardize variable naming for configuration in changelog file by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`677f7a4`](https://github.com/TheElegantCoding/gitlys/commit/677f7a4)] - **fix:** rename configuration variable to improve clarity and consistency by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`a8d6fba`](https://github.com/TheElegantCoding/gitlys/commit/a8d6fba)] - **fix:** update VSCode settings for improved formatting and linting configuration by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`b90816b`](https://github.com/TheElegantCoding/gitlys/commit/b90816b)] - **fix:** add .eslintcache to .gitignore to prevent caching issues by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`ec521c9`](https://github.com/TheElegantCoding/gitlys/commit/ec521c9)] - **fix:** update build and lint scripts in package.json; bump eslint-config-universal-code to version 1.1.4 by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`e60e7d1`](https://github.com/TheElegantCoding/gitlys/commit/e60e7d1)] - **fix:** update eslint-config-universal-code to version 1.1.3 by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`368390e`](https://github.com/TheElegantCoding/gitlys/commit/368390e)] - **fix:** update bun.lockb file permissions to executable by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`775354e`](https://github.com/TheElegantCoding/gitlys/commit/775354e)] - **fix:** update changelog entry format to improve readability by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+- [[`b92fee5`](https://github.com/TheElegantCoding/gitlys/commit/b92fee5)] - **fix:** update eslint-config-universal-code to version 1.1.2 by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- [[`dda642e`](https://github.com/TheElegantCoding/gitlys/commit/dda642e)] - **fix:** update ConfigurationType to include optional files property in release section by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- [[`bc22da4`](https://github.com/TheElegantCoding/gitlys/commit/bc22da4)] - **feat:** add updateFiles function to manage version updates in package.json and PKGBUILD by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- [[`26952f6`](https://github.com/TheElegantCoding/gitlys/commit/26952f6)] - **fix:** replace updatePackageJson with updateFiles in generateRelease function by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- [[`f08bd2c`](https://github.com/TheElegantCoding/gitlys/commit/f08bd2c)] - **fix:** add 'package.json' to release files in configuration by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+
 ## 🚀 Version [2.2.2] - 2026-09-27
 
 - **fix:** update @types/node to version 26.6.3 for compatibility [`4f673b6`](https://github.com/TheElegantCoding/gitlys/commit/4f673b6) by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
