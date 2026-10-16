@@ -16,6 +16,11 @@ The list of changes have the description - commit - author.
 
 ## Released
 
+## 🚀 Version [2.2.4] - 2026-10-16
+
+- [[`a9b3bdf`](https://github.com/TheElegantCoding/gitlys/commit/a9b3bdf)] - **fix:** adjust formatting of release notes for improved readability by [`@TheElegantCoding`](https://github.com/TheElegantCoding)
+- [[`9a74043`](https://github.com/TheElegantCoding/gitlys/commit/9a74043)] - **fix:** remove unnecessary files from tsconfig include by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
+
 ## 🚀 Version [2.2.3] - 2026-10-02
 
 - [[`33f3d41`](https://github.com/TheElegantCoding/gitlys/commit/33f3d41)] - **fix:** update build script to use bun instead of bunx by [`@Luis Monsalve`](https://github.com/Luis Monsalve)
