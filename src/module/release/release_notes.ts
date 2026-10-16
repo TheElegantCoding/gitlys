@@ -34,7 +34,7 @@ const generateReleaseNotes = async (commits: CommitType[]) => {
         author,
         cleanMessage
       } = commit;
-      return `- **${commitTypeMessage}:** ${cleanMessage} [\`${hash}\`](${gitUrl}/commit/${hash}) by [\`@${author}\`](${github}/${author})`;
+      return `- [[\`${hash}\`](${gitUrl}/commit/${hash})] - **${commitTypeMessage}:** ${cleanMessage} by [\`@${author}\`](${github}/${author})`;
     }).join('\n');
 
     return `${header}\n\n${body}`;
